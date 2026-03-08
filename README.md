@@ -1,7 +1,7 @@
 # EventStream AI Monitor
 
 <p align="center">
-  <img src="docs/images/eventstream-logo.svg" alt="EventStream AI Monitor Logo" width="200" height="200">
+  <img src="docs/images/eventstream-logo.svg" alt="EventStream AI Monitor Logo">
 </p>
 
 ## Overview
