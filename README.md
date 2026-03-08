@@ -1,5 +1,9 @@
 # EventStream AI Monitor
 
+<p align="center">
+  <img src="docs/images/eventstream-logo.svg" alt="EventStream AI Monitor Logo" width="200" height="200">
+</p>
+
 ## Overview
 
 EventStream AI Monitor is a platform that receives events from distributed systems and triggers automated actions based on user-defined rules. It leverages AI from Hugging Face to classify, summarize, and interpret incoming events, enabling teams to monitor and react to system behavior intelligently.

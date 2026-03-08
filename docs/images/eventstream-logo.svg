@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" width="520" height="160">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1e"/>
+      <stop offset="100%" style="stop-color:#0d1628"/>
+    </linearGradient>
+    <linearGradient id="streamGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0"/>
+      <stop offset="40%" style="stop-color:#00d4ff;stop-opacity:1"/>
+      <stop offset="70%" style="stop-color:#7b61ff;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#7b61ff;stop-opacity:0.2"/>
+    </linearGradient>
+    <linearGradient id="stream2Grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ffb3;stop-opacity:0"/>
+      <stop offset="30%" style="stop-color:#00ffb3;stop-opacity:0.8"/>
+      <stop offset="60%" style="stop-color:#00d4ff;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="stream3Grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7b61ff;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#ff6b9d;stop-opacity:0.7"/>
+      <stop offset="100%" style="stop-color:#ff6b9d;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff"/>
+      <stop offset="100%" style="stop-color:#7b61ff"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="60%" style="stop-color:#e0f0ff"/>
+      <stop offset="100%" style="stop-color:#a0c8ff"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <clipPath id="iconClip">
+      <rect x="0" y="0" width="120" height="160"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="520" height="160" rx="12" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid texture -->
+  <g opacity="0.04">
+    <line x1="0" y1="20" x2="520" y2="20" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="0" y1="40" x2="520" y2="40" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="0" y1="60" x2="520" y2="60" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="0" y1="80" x2="520" y2="80" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="0" y1="100" x2="520" y2="100" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="0" y1="120" x2="520" y2="120" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="0" y1="140" x2="520" y2="140" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="40" y1="0" x2="40" y2="160" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="80" y1="0" x2="80" y2="160" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="120" y1="0" x2="120" y2="160" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="160" y1="0" x2="160" y2="160" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="200" y1="0" x2="200" y2="160" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="240" y1="0" x2="240" y2="160" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="280" y1="0" x2="280" y2="160" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="320" y1="0" x2="320" y2="160" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="360" y1="0" x2="360" y2="160" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="400" y1="0" x2="400" y2="160" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="440" y1="0" x2="440" y2="160" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="480" y1="0" x2="480" y2="160" stroke="#ffffff" stroke-width="0.5"/>
+  </g>
+
+  <!-- === ICON MARK === -->
+  <!-- Outer hexagon ring -->
+  <polygon points="65,18 95,35 95,69 65,86 35,69 35,35" fill="none" stroke="url(#iconGrad)" stroke-width="1.5" opacity="0.5" filter="url(#glow)"/>
+
+  <!-- Inner hexagon -->
+  <polygon points="65,30 82,40 82,60 65,70 48,60 48,40" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.8"/>
+
+  <!-- Center core circle -->
+  <circle cx="65" cy="52" r="11" fill="none" stroke="url(#iconGrad)" stroke-width="2" filter="url(#glow)"/>
+  <circle cx="65" cy="52" r="5" fill="url(#iconGrad)" filter="url(#softGlow)"/>
+
+  <!-- Stream lines through icon -->
+  <line x1="20" y1="44" x2="48" y2="49" stroke="#00d4ff" stroke-width="1.5" opacity="0.9" filter="url(#glow)"/>
+  <line x1="82" y1="52" x2="108" y2="47" stroke="#7b61ff" stroke-width="1.5" opacity="0.9" filter="url(#glow)"/>
+  <line x1="20" y1="60" x2="48" y2="56" stroke="#00ffb3" stroke-width="1" opacity="0.6"/>
+  <line x1="82" y1="57" x2="110" y2="62" stroke="#7b61ff" stroke-width="1" opacity="0.5"/>
+
+  <!-- Pulse dots on streams -->
+  <circle cx="34" cy="46" r="2" fill="#00d4ff" filter="url(#glow)"/>
+  <circle cx="96" cy="49" r="2" fill="#7b61ff" filter="url(#glow)"/>
+  <circle cx="27" cy="61" r="1.5" fill="#00ffb3" opacity="0.7"/>
+
+  <!-- AI nodes -->
+  <circle cx="20" cy="44" r="3" fill="none" stroke="#00d4ff" stroke-width="1.2" opacity="0.8"/>
+  <circle cx="108" cy="47" r="3" fill="none" stroke="#7b61ff" stroke-width="1.2" opacity="0.8"/>
+  <circle cx="20" cy="60" r="2.5" fill="none" stroke="#00ffb3" stroke-width="1" opacity="0.6"/>
+  <circle cx="110" cy="62" r="2.5" fill="none" stroke="#7b61ff" stroke-width="1" opacity="0.5"/>
+
+  <!-- Decorative event pulses below icon -->
+  <rect x="38" y="96" width="3" height="16" rx="1.5" fill="#00d4ff" opacity="0.9" filter="url(#glow)"/>
+  <rect x="46" y="100" width="3" height="9" rx="1.5" fill="#7b61ff" opacity="0.7"/>
+  <rect x="54" y="93" width="3" height="20" rx="1.5" fill="#00ffb3" opacity="0.8" filter="url(#glow)"/>
+  <rect x="62" y="98" width="3" height="12" rx="1.5" fill="#00d4ff" opacity="0.6"/>
+  <rect x="70" y="94" width="3" height="18" rx="1.5" fill="#7b61ff" opacity="0.9" filter="url(#glow)"/>
+  <rect x="78" y="101" width="3" height="8" rx="1.5" fill="#ff6b9d" opacity="0.7"/>
+  <rect x="86" y="96" width="3" height="14" rx="1.5" fill="#00ffb3" opacity="0.5"/>
+
+  <!-- Divider line (vertical) -->
+  <line x1="128" y1="24" x2="128" y2="136" stroke="#ffffff" stroke-width="0.5" opacity="0.12"/>
+
+  <!-- === TEXT === -->
+  <!-- "EventStream" -->
+  <text x="148" y="72" font-family="'Courier New', 'Lucida Console', monospace" font-size="36" font-weight="700" letter-spacing="-1" fill="url(#textGrad)" filter="url(#glow)">EventStream</text>
+
+  <!-- Separator line under EventStream -->
+  <line x1="148" y1="82" x2="498" y2="82" stroke="url(#streamGrad)" stroke-width="1" opacity="0.6"/>
+
+  <!-- "AI MONITOR" -->
+  <text x="150" y="108" font-family="'Courier New', 'Lucida Console', monospace" font-size="15" font-weight="400" letter-spacing="8" fill="#00d4ff" opacity="0.9">AI MONITOR</text>
+
+  <!-- Small animated-style stream lines (decorative, right side) -->
+  <line x1="390" y1="120" x2="500" y2="120" stroke="url(#stream2Grad)" stroke-width="1" opacity="0.4"/>
+  <line x1="420" y1="126" x2="510" y2="126" stroke="url(#stream3Grad)" stroke-width="0.8" opacity="0.3"/>
+
+  <!-- Top-right corner accent -->
+  <circle cx="498" cy="22" r="3" fill="#7b61ff" opacity="0.6" filter="url(#glow)"/>
+  <circle cx="508" cy="22" r="2" fill="#00d4ff" opacity="0.4"/>
+  <line x1="501" y1="22" x2="506" y2="22" stroke="#00d4ff" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- Border glow -->
+  <rect width="520" height="160" rx="12" fill="none" stroke="url(#iconGrad)" stroke-width="1" opacity="0.3"/>
+</svg>
