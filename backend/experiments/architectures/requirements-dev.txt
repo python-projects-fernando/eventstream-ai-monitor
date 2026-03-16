@@ -1,0 +1,20 @@
+# Performance and Load Testing
+locust
+wrk # (OBS: wrk is a Lua/C tool, installed outside pip, but useful to have)
+hey # (OBS: hey is a Go tool, installed outside pip, but useful to have)
+
+# Testing and Coverage
+pytest
+pytest-cov
+pytest-asyncio
+mutmut
+
+# Code Quality and Analysis
+radon
+mypy
+pylint
+ruff # (Fast and modern alternative to flake8 + isort + others)
+pydeps
+
+# Optional: Dependency Analysis
+pipdeptree
