@@ -1,0 +1,36 @@
+classDiagram
+    class Event {
+        <<Entity>>
+        +id: string
+        +timestamp: datetime
+        +source: string
+        +event_type: string
+        +payload: dict
+        +processed: boolean
+        +ai_classification: string
+    }
+
+    class EventRepositoryOutputPort {
+        <<Interface>>
+        +save(event)
+        +find_by_id(id)
+        +find_all(limit, offset)
+        +update(event)
+    }
+
+    class ProcessEventInputPort {
+        <<Interface>>
+        +process(source, event_type payload)
+    }
+
+    class ProcessEventUseCase {
+        <<Use Case>>
+        +event_repository: EventRepositoryOutputPort
+        +process(source, event_type, payload)
+    }
+
+    %% Relationships (compatíveis com draw.io)
+    Event "1" *-- "0..*" ProcessEventUseCase : processed by
+    ProcessEventUseCase ..|> ProcessEventInputPort : implements
+    ProcessEventUseCase --> EventRepositoryOutputPort : uses
+    EventRepositoryOutputPort --> Event : manages
