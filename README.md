@@ -30,7 +30,7 @@ Modern applications generate large volumes of events and logs. Teams often strug
 We are following a systematic, phased approach to evaluate and compare different technology categories, ensuring that decisions are made based on concrete data and observed performance characteristics:
 
 - **Phase 1**: Architecture comparison (Hexagonal vs Clean vs Onion) with fixed technologies: **FastAPI** and **PostgreSQL**.
-- **Phase 2**: Database comparison (PostgreSQL vs MongoDB vs SQLite) with chosen architecture
+- **Phase 2**: Database comparison (PostgreSQL vs MongoDB) with chosen architecture
 - **Phase 3**: Messaging comparison (Kafka vs RabbitMQ vs Local Queue) with chosen architecture and database
 - **Phase 4**: Framework comparison (FastAPI vs Django vs Flask) with chosen stack
 - **Phase 5**: AI integration comparison (Hugging Face API vs Local Models) with chosen stack
