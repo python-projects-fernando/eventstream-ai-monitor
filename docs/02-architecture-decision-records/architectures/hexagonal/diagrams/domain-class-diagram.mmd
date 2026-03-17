@@ -1,0 +1,97 @@
+classDiagram
+    %% Core Domain
+    class Event {
+        <<Entity>>
+        +str id
+        +datetime timestamp
+        +str source
+        +str event_type
+        +dict[str, Any] payload
+        +bool processed
+        +str | None ai_classification
+        +Event create(source, event_type, payload)
+        +mark_as_processed()
+        +set_ai_classification(classification)
+        +get_summary()
+        +__post_init__()
+    }
+
+    %% Core Application Ports
+    class EventRepositoryOutputPort {
+        <<Interface>>
+        +save(event: Event) Event
+        +find_by_id(id: str) Event
+        +find_all(limit: int, offset: int) list[Event]
+        +update(event: Event) Event
+    }
+
+    class ProcessEventInputPort {
+        <<Interface>>
+        +process(source: str, event_type: str, payload: dict[str, Any]) Event
+    }
+
+    %% Core Application Use Case
+    class ProcessEventUseCase {
+        <<Use Case>>
+        -_repository: EventRepositoryOutputPort
+        +process(source: str, event_type: str, payload: dict[str, Any]) Event
+    }
+
+    %% Adapters
+    class EventController {
+        <<Adapter>>
+        -_process_event_use_case: ProcessEventInputPort
+_create_event(request: EventRequestSchema) EventResponseSchema
+        +_setup_routes(app)
+    }
+
+    class EventRequestSchema {
+        <<DTO/Schema>>
+        +source: str
+        +event_type: str
+        +payload: dict[str, Any]
+    }
+
+    class EventResponseSchema {
+        <<DTO/Schema>>
+        +id: str
+        +timestamp: datetime
+        +source: str
+        +event_type: str
+        +payload: dict[str, Any]
+        +processed: bool
+        +ai_classification: str | None
+    }
+
+    class PostgreSQLEventRepository {
+        <<Adapter Implementation>>
+        -_session_factory: async_sessionmaker
+        +save(event: Event) Event
+        +find_by_id(id: str) Event
+        +find_all(limit: int, offset: int) list[Event]
+        +update(event: Event) Event
+        +_map_to_db_entity(domain_event: Event) EventModel
+        +_map_from_db_entity(db_event: EventModel) Event
+    }
+
+    class EventModel {
+        <<ORM Entity>>
+        +id: str
+        +timestamp: datetime
+        +source: str
+        +event_type: str
+        +payload: JSONB
+        +processed: bool
+        +ai_classification: str
+    }
+
+    %% Relationships
+    ProcessEventUseCase ..|> ProcessEventInputPort : implements
+    ProcessEventUseCase --> EventRepositoryOutputPort : uses
+    EventController --> ProcessEventInputPort : uses
+    PostgreSQLEventRepository ..|> EventRepositoryOutputPort : implements
+    EventController --> EventRequestSchema : receives
+    EventController --> EventResponseSchema : returns
+    PostgreSQLEventRepository --> EventModel : maps to/from
+    ProcessEventUseCase --> Event : creates/manipulates
+    PostgreSQLEventRepository --> Event : saves/fetches
