@@ -1,0 +1,56 @@
+(.venv) C:\Repos\projetos\python\eventstream-ai-monitor git:[main]
+.\run_tests.bat
+=============================================================== test session starts ===============================================================
+platform win32 -- Python 3.13.3, pytest-9.0.2, pluggy-1.6.0
+rootdir: C:\Repos\projetos\python\eventstream-ai-monitor
+plugins: anyio-4.12.1, locust-2.43.3, asyncio-1.3.0, cov-7.0.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 7 items
+
+backend\experiments\architectures\hexagonal\tests\test_adapters\test_input\test_event_controller.py .                                        [ 14%]
+backend\experiments\architectures\hexagonal\tests\test_adapters\test_output\test_postgresql_event_repository.py .                            [ 28%]
+backend\experiments\architectures\hexagonal\tests\test_application\test_use_cases\test_process_event_use_case.py .                           [ 42%]
+backend\experiments\architectures\hexagonal\tests\test_domain\test_event.py ....                                                             [100%]
+
+================================================================ warnings summary =================================================================
+backend\experiments\architectures\hexagonal\src\adapters\input\api\schemas\event_schemas.py:15
+  C:\Repos\projetos\python\eventstream-ai-monitor\backend\experiments\architectures\hexagonal\src\adapters\input\api\schemas\event_schemas.py:15: Py
+danticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class EventResponseSchema(BaseModel):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================== slowest 10 durations ===============================================================
+0.02s setup    backend/experiments/architectures/hexagonal/tests/test_adapters/test_input/test_event_controller.py::TestEventController::test_handle_create_event_success
+
+(9 durations < 0.005s hidden.  Use -vv to show these durations.)
+========================================================== 7 passed, 1 warning in 0.09s ===========================================================
+Pressione qualquer tecla para continuar. . .
+
+
+(.venv) C:\Repos\projetos\python\eventstream-ai-monitor git:[main]
+.\run_tests.bat
+=============================================================== test session starts ===============================================================
+platform win32 -- Python 3.13.3, pytest-9.0.2, pluggy-1.6.0
+rootdir: C:\Repos\projetos\python\eventstream-ai-monitor
+plugins: anyio-4.12.1, locust-2.43.3, asyncio-1.3.0, cov-7.0.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 7 items
+
+backend\experiments\architectures\hexagonal\tests\test_adapters\test_input\test_event_controller.py .                                        [ 14%]
+backend\experiments\architectures\hexagonal\tests\test_adapters\test_output\test_postgresql_event_repository.py .                            [ 28%]
+backend\experiments\architectures\hexagonal\tests\test_application\test_use_cases\test_process_event_use_case.py .                           [ 42%]
+backend\experiments\architectures\hexagonal\tests\test_domain\test_event.py ....                                                             [100%]
+
+================================================================ warnings summary =================================================================
+backend\experiments\architectures\hexagonal\src\adapters\input\api\schemas\event_schemas.py:15
+  C:\Repos\projetos\python\eventstream-ai-monitor\backend\experiments\architectures\hexagonal\src\adapters\input\api\schemas\event_schemas.py:15: Py
+danticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class EventResponseSchema(BaseModel):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================== slowest 10 durations ===============================================================
+0.03s setup    backend/experiments/architectures/hexagonal/tests/test_adapters/test_input/test_event_controller.py::TestEventController::test_handle_create_event_success
+0.01s call     backend/experiments/architectures/hexagonal/tests/test_adapters/test_output/test_postgresql_event_repository.py::TestPostgreSQLEventRepository::test_save_calls_session_add_and_commit
+
+(8 durations < 0.005s hidden.  Use -vv to show these durations.)
+========================================================== 7 passed, 1 warning in 0.10s ===========================================================

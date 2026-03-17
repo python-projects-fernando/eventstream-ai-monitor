@@ -1,0 +1,12 @@
+src\adapters\output\database\models\event_model.py:10: error: Variable "adapters.output.database.models.event_model.Base" is not valid as a type  [valid-type]
+src\adapters\output\database\models\event_model.py:10: note: See https://mypy.readthedocs.io/en/stable/common_issues.html#variables-vs-type-aliases
+src\adapters\output\database\models\event_model.py:10: error: Invalid base class "Base"  [misc]
+src\adapters\output\database\repositories\postgresql_event_repository.py:145: error: Argument "id" to "Event" has incompatible type "Column[str]"; expected "str"  [arg-type]
+src\adapters\output\database\repositories\postgresql_event_repository.py:146: error: Argument "timestamp" to "Event" has incompatible type "Column[datetime]"; expected "datetime"  [arg-type]
+src\adapters\output\database\repositories\postgresql_event_repository.py:147: error: Argument "source" to "Event" has incompatible type "Column[str]"; expected "str"  [arg-type]
+src\adapters\output\database\repositories\postgresql_event_repository.py:148: error: Argument "event_type" to "Event" has incompatible type "Column[str]"; expected "str"  [arg-type]
+src\adapters\output\database\repositories\postgresql_event_repository.py:149: error: Argument "payload" to "Event" has incompatible type "Column[Any]"; expected "dict[str, Any]"  [arg-type]
+src\adapters\output\database\repositories\postgresql_event_repository.py:150: error: Argument "processed" to "Event" has incompatible type "Column[bool]"; expected "bool"  [arg-type]
+src\adapters\output\database\repositories\postgresql_event_repository.py:151: error: Argument "ai_classification" to "Event" has incompatible type "Column[str]"; expected "str | None"  [arg-type]
+src\main.py:55: error: Argument 1 to "PostgreSQLEventRepository" has incompatible type "async_sessionmaker[AsyncSession]"; expected "sessionmaker[Any]"  [arg-type]
+Found 10 errors in 3 files (checked 26 source files)

@@ -5,7 +5,8 @@ REM Set the PYTHONPATH to include the src directory of the hexagonal architectur
 set PYTHONPATH=%~dp0backend\experiments\architectures\hexagonal\src;%PYTHONPATH%
 
 REM Run pytest on the hexagonal architecture tests with verbose output and short traceback
-python -m pytest backend\experiments\architectures\hexagonal\tests\ -v --tb=short
+REM python -m pytest backend\experiments\architectures\hexagonal\tests\ -v --tb=short
+python -m pytest backend\experiments\architectures\hexagonal\tests\ --durations=10
 
 REM Pause to view the result (optional, remove if you want it to close automatically)
 pause
