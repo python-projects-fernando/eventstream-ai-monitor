@@ -8,7 +8,7 @@
 
 EventStream AI Monitor is currently in the **technology evaluation phase**. We are systematically comparing different architectural patterns, databases, messaging systems, and frameworks to make informed decisions based on benchmarking data. Each evaluation phase will be documented in its respective ADR (Architecture Decision Record).
 
-No production code has been merged yet. All experiments are isolated in `experiments/` following our systematic evaluation approach.
+No production code has been merged yet. All experiments are isolated in `backend/experiments/` following our systematic evaluation approach.
 
 ## Overview
 
@@ -27,15 +27,28 @@ Modern applications generate large volumes of events and logs. Teams often strug
 
 ## Systematic Technology Evaluation Approach
 
-We are following a systematic approach where each technology category is evaluated individually:
+We are following a systematic, phased approach to evaluate and compare different technology categories, ensuring that decisions are made based on concrete data and observed performance characteristics:
 
-- **Phase 1**: Architecture comparison (Hexagonal vs Clean vs Onion) with fixed technologies: FastAPI, PostgreSQL, Kafka, Hugging Face API
+- **Phase 1**: Architecture comparison (Hexagonal vs Clean vs Onion) with fixed technologies: **FastAPI** and **PostgreSQL**.
 - **Phase 2**: Database comparison (PostgreSQL vs MongoDB vs SQLite) with chosen architecture
 - **Phase 3**: Messaging comparison (Kafka vs RabbitMQ vs Local Queue) with chosen architecture and database
 - **Phase 4**: Framework comparison (FastAPI vs Django vs Flask) with chosen stack
 - **Phase 5**: AI integration comparison (Hugging Face API vs Local Models) with chosen stack
 
-**Why this approach?** By fixing all other variables during each evaluation phase, we ensure that benchmark results reflect the true performance of the technology being tested, not side effects from other components. This methodology prevents misleading comparisons where differences might be attributed to the wrong variable.
+**Why this approach?** By fixing all other variables during each evaluation phase, we ensure that benchmark results reflect the true performance and characteristics of the technology being tested, not side effects from other components. This methodology prevents misleading comparisons where differences might be attributed to the wrong variable.
+
+### Current Progress (Phase 1 - Architecture)
+
+- **Hexagonal Architecture Experiment**: Implemented core structure, domain entities, use cases, and input/output adapters.
+- **Unit Tests**: Developed comprehensive unit tests for all layers (domain, use case, controller, repository).
+- **Static Benchmarking**: Executed initial benchmarking suite focusing on:
+    - Code Coverage (pytest-cov)
+    - Cyclomatic Complexity (radon)
+    - Maintainability Index (radon)
+    - Linting (ruff)
+    - Type Checking (mypy) - *Identified several type-related issues for improvement*
+    - Dependency Analysis (pipdeptree, pydeps)
+- **Results**: Baseline metrics established for Hexagonal Architecture. Results are documented in `docs/03-benchmarking-and-performance-analysis/architectures/benchmark-results/01-hexagonal-architecture/`.
 
 ## Technologies Under Evaluation
 
@@ -45,7 +58,7 @@ We are following a systematic approach where each technology category is evaluat
 - **AI Integration**: Hugging Face API vs Local Models (Transformers/Ollama)
 - **Architecture**: Hexagonal vs Clean vs Onion
 
-_All technology choices will be validated through systematic benchmarking and documented in our ADRs._
+_All technology choices will be validated and documented in our ADRs._
 
 ## MVP Scope (Planned)
 
@@ -63,9 +76,20 @@ _All components will be evaluated through systematic benchmarking and documented
 
 To explore technology experiments:
 
-1. Clone the repo
-2. Navigate to `experiments/`
-3. Review each implementation and benchmark results
-4. Check `docs/adr-*.md` files for detailed decision records
+1.  Clone the repo
+2.  Navigate to `backend/experiments/`
+3.  Review each implementation and benchmark results in `docs/03-benchmarking-and-performance-analysis/`
 
 Full setup instructions will be added after technology selection phases are complete.
+
+---
+
+## 👤 Maintained By
+This project is developed and maintained by **FM ByteShift Software**
+
+**Fernando Magalhães**  
+CEO – FM ByteShift Software  
+📞 (21) 97250-1546  
+✉️ [contact@fmbyteshiftsoftware.com](mailto:contact@fmbyteshiftsoftware.com)  
+🌐 [fmbyteshiftsoftware.com](https://fmbyteshiftsoftware.com)  
+🏢 CNPJ: 62.145.022/0001-05 (Brazil)
