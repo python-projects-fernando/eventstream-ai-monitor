@@ -41,14 +41,17 @@ We are following a systematic, phased approach to evaluate and compare different
 
 - **Hexagonal Architecture Experiment**: Implemented core structure, domain entities, use cases, and input/output adapters.
 - **Unit Tests**: Developed comprehensive unit tests for all layers (domain, use case, controller, repository).
-- **Static Benchmarking**: Executed initial benchmarking suite focusing on:
-    - Code Coverage (pytest-cov)
-    - Cyclomatic Complexity (radon)
-    - Maintainability Index (radon)
-    - Linting (ruff)
-    - Type Checking (mypy) - *Identified several type-related issues for improvement*
-    - Dependency Analysis (pipdeptree, pydeps)
-- **Results**: Baseline metrics established for Hexagonal Architecture. Results are documented in `docs/03-benchmarking-and-performance-analysis/architectures/benchmark-results/01-hexagonal-architecture/`.
+- **Automated Static Benchmarking**: Executed initial benchmarking suite focusing on:
+    - **Code Coverage (pytest-cov)**
+    - **Cyclomatic Complexity (radon)**
+    - **Maintainability Index (radon)**
+    - **Linting (ruff)**
+    - **Type Checking (mypy)** - *Identified several type-related issues for improvement*
+    - **Dependency Analysis (pipdeptree, pydeps)**
+    - **Test Durations (pytest --durations)**
+    - **Module Dependency Graph (pydeps --show-dot)**
+- **Benchmark Execution**: The static benchmarking process is automated using scripts (e.g., `run_static_benchmark_v1.bat`). These scripts sequentially execute the tools, capture output, and save results to numbered text files (e.g., `01-v1-code-coverage.txt`, `02-v1-complexity-cc.txt`). This ensures consistent and reproducible analysis across different environments and implementations.
+- **Results**: Baseline metrics established for Hexagonal Architecture.
 
 ## Technologies Under Evaluation
 
@@ -79,6 +82,7 @@ To explore technology experiments:
 1.  Clone the repo
 2.  Navigate to `backend/experiments/`
 3.  Review each implementation and benchmark results in `docs/03-benchmarking-and-performance-analysis/`
+4.  To run the automated static benchmark for the Hexagonal Architecture locally, navigate to `backend/experiments/architectures/hexagonal/` and execute the `run_static_benchmark_v1.bat` script (on Windows). The results will be saved as numbered `.txt` files in the same directory.
 
 Full setup instructions will be added after technology selection phases are complete.
 
@@ -91,5 +95,5 @@ This project is developed and maintained by **FM ByteShift Software**
 CEO – FM ByteShift Software  
 📞 (21) 97250-1546  
 ✉️ [contact@fmbyteshiftsoftware.com](mailto:contact@fmbyteshiftsoftware.com)  
-🌐 [fmbyteshiftsoftware.com](https://fmbyteshiftsoftware.com)  
+🌐 [fmbyteshiftsoftware.com](https://fmbyteshiftsoftware.com  )  
 🏢 CNPJ: 62.145.022/0001-05 (Brazil)
