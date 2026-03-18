@@ -53,7 +53,7 @@ We are following a systematic, phased approach to evaluate and compare different
 ## Technologies Under Evaluation
 
 - **Backend framework**: FastAPI vs Django vs Flask
-- **Database**: PostgreSQL vs MongoDB vs SQLite
+- **Database**: PostgreSQL vs MongoDB
 - **Messaging**: Kafka vs RabbitMQ vs Local Queue
 - **AI Integration**: Hugging Face API vs Local Models (Transformers/Ollama)
 - **Architecture**: Hexagonal vs Clean vs Onion
