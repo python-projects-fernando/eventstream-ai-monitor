@@ -32,7 +32,7 @@ src\adapters\input\api\schemas\event_schemas.py                               16
 src\adapters\output\__init__.py                                                2      0   100%
 src\adapters\output\database\__init__.py                                       3      0   100%
 src\adapters\output\database\models\__init__.py                                2      0   100%
-src\adapters\output\database\models\event_model.py                            13      0   100%
+src\adapters\output\database\models\event_model.py                            15      0   100%
 src\adapters\output\database\repositories\__init__.py                          2      0   100%
 src\adapters\output\database\repositories\postgresql_event_repository.py      46     25    46%   54-63, 76-84, 96-112, 124, 144
 src\core\__init__.py                                                           0      0   100%
@@ -49,5 +49,5 @@ src\core\domain\entities\__init__.py                                           2
 src\core\domain\entities\event.py                                             31      4    87%   27, 58, 62, 66
 src\main.py                                                                   33     33     0%   1-70
 --------------------------------------------------------------------------------------------------------
-TOTAL                                                                        216     71    67%
-======================== 7 passed, 1 warning in 0.20s =========================
+TOTAL                                                                        218     71    67%
+======================== 7 passed, 1 warning in 0.40s =========================

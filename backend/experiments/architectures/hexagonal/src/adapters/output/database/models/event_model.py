@@ -1,25 +1,23 @@
-from sqlalchemy import Column, String, Boolean, JSON
-from sqlalchemy.types import DateTime
-from sqlalchemy.orm import declarative_base
+from sqlalchemy import String, Boolean, JSON, DateTime
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from typing import Optional, Dict, Any
+from datetime import datetime
 
-
-
-Base = declarative_base()
-
+class Base(DeclarativeBase):
+    """Base class for SQLAlchemy models."""
+    pass
 
 class EventModel(Base):
     """
     SQLAlchemy model for events table.
-
     This represents the database schema for events.
     """
-
     __tablename__ = "events"
 
-    id = Column(String, primary_key=True, index=True)
-    timestamp = Column(DateTime(timezone=True), nullable=False)
-    source = Column(String, nullable=False)
-    event_type = Column(String, nullable=False)
-    payload = Column(JSON, nullable=False)
-    processed = Column(Boolean, default=False)
-    ai_classification = Column(String, nullable=True)
+    id: Mapped[str] = mapped_column(String, primary_key=True, index=True)
+    timestamp: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    source: Mapped[str] = mapped_column(String, nullable=False)
+    event_type: Mapped[str] = mapped_column(String, nullable=False)
+    payload: Mapped[Dict[str, Any]] = mapped_column(JSON, nullable=False)
+    processed: Mapped[bool] = mapped_column(Boolean, default=False)
+    ai_classification: Mapped[Optional[str]] = mapped_column(String, nullable=True)

@@ -46,7 +46,7 @@ We are following a systematic, phased approach to evaluate and compare different
     - **Cyclomatic Complexity (radon)**
     - **Maintainability Index (radon)**
     - **Linting (ruff)**
-    - **Type Checking (mypy)** - *Identified several type-related issues for improvement*
+    - **Type Checking (mypy)** - **Successfully resolved identified type-related issues.** The codebase now passes strict type checking without errors, significantly increasing confidence in its correctness and reducing potential runtime issues.
     - **Dependency Analysis (pipdeptree, pydeps)**
     - **Test Durations (pytest --durations)**
     - **Module Dependency Graph (pydeps --show-dot)**
@@ -95,5 +95,5 @@ This project is developed and maintained by **FM ByteShift Software**
 CEO – FM ByteShift Software  
 📞 (21) 97250-1546  
 ✉️ [contact@fmbyteshiftsoftware.com](mailto:contact@fmbyteshiftsoftware.com)  
-🌐 [fmbyteshiftsoftware.com](https://fmbyteshiftsoftware.com  )  
+🌐 [fmbyteshiftsoftware.com](https://fmbyteshiftsoftware.com    )  
 🏢 CNPJ: 62.145.022/0001-05 (Brazil)

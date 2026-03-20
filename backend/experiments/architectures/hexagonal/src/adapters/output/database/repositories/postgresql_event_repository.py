@@ -1,5 +1,5 @@
 from sqlalchemy.future import select
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.asyncio import async_sessionmaker, AsyncSession
 from typing import List, Optional
 from core.domain.entities import Event
 from core.application.ports.output import EventRepositoryOutputPort
@@ -14,12 +14,12 @@ class PostgreSQLEventRepository(EventRepositoryOutputPort):
     using SQLAlchemy as the ORM.
     """
 
-    def __init__(self, session_factory: sessionmaker):
+    def __init__(self, session_factory: async_sessionmaker[AsyncSession]):
         """
-        Initialize the repository with a database session factory.
+        Initialize the repository with a database async session factory.
 
         Args:
-            session_factory: SQLAlchemy sessionmaker for creating sessions
+            session_factory: SQLAlchemy async_sessionmaker for creating async sessions
         """
         self._session_factory = session_factory
 

@@ -18,8 +18,7 @@ src\adapters\input\api\schemas\event_schemas.py:15
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
 ============================ slowest 10 durations =============================
-0.04s setup    tests/test_adapters/test_input/test_event_controller.py::TestEventController::test_handle_create_event_success
-0.01s call     tests/test_adapters/test_output/test_postgresql_event_repository.py::TestPostgreSQLEventRepository::test_save_calls_session_add_and_commit
+0.02s setup    tests/test_adapters/test_input/test_event_controller.py::TestEventController::test_handle_create_event_success
 
-(8 durations < 0.005s hidden.  Use -vv to show these durations.)
-======================== 7 passed, 1 warning in 0.10s =========================
+(9 durations < 0.005s hidden.  Use -vv to show these durations.)
+======================== 7 passed, 1 warning in 0.06s =========================

@@ -10,6 +10,7 @@ src\adapters\input\api\schemas\event_schemas.py
     C 6:0 EventRequestSchema - A (1)
     C 15:0 EventResponseSchema - A (1)
 src\adapters\output\database\models\event_model.py
+    C 6:0 Base - A (1)
     C 10:0 EventModel - A (1)
 src\adapters\output\database\repositories\postgresql_event_repository.py
     C 9:0 PostgreSQLEventRepository - A (2)
@@ -41,5 +42,5 @@ src\core\domain\entities\event.py
     M 60:4 Event.set_ai_classification - A (1)
     M 64:4 Event.get_summary - A (1)
 
-33 blocks (classes, functions, methods) analyzed.
-Average complexity: A (1.5151515151515151)
+34 blocks (classes, functions, methods) analyzed.
+Average complexity: A (1.5)

@@ -32,7 +32,7 @@ This document summarizes the results of the initial benchmark for the Hexagonal 
 *   **Tool:** `radon`
 *   **Command:** `radon mi src/ -s`
 *   **Key Observations:**
-    *   The majority of files score very high ('A' grade, 100. good maintainability.
+    *   The majority of files score very high ('A' grade, 100.00), indicating good maintainability.
     *   Notable exceptions:
         *   `postgresql_event_repository.py`: Score of **A (81.41)**. Still good, but lower than others.
         *   `event.py`: Score of **A (81.89)**. Still good, but lower than others.
@@ -50,12 +50,10 @@ This document summarizes the results of the initial benchmark for the Hexagonal 
 
 *   **Tool:** `mypy`
 *   **Command:** `MYPYPATH=src mypy --explicit-package-bases src/`
-*   **Result:** **Found 10 errors in 3 files.**
+*   **Result:** **Success: no issues found in 26 source files.**
 *   **Key Observations:**
-    *   There are type mismatches between SQLAlchemy `Column` types and the expected types for the `Event` entity in `postgresql_event_repository.py`.
-    *   There's an issue with the from SQLAlchemy in `event_model.py` regarding type aliases.
-    *   There's an incompatibility between `async_sessionmaker` and `sessionmaker` types when instantiating the repository`.
-    *   These errors indicate potential runtime issues if not addressed.
+    *   All previous type-related errors (including SQLAlchemy `Column` mismatches, `Base` class issues, and `sessionmaker`/`async_sessionmaker` incompatibilities) have been successfully resolved.
+    *   The codebase now passes strict type checking, enhancing confidence in its correctness and reducing potential runtime errors.
 
 ### 6. Dependency Tree (Static Metric - External)
 
@@ -68,7 +66,7 @@ This document summarizes the results of the initial benchmark for the Hexagonal 
 
 *   **Tool:** `pydeps`
 *   **Command:** `MYPYPATH=src pydeps src/ --show-dot --max-bacon 2`
-*   **Result:** Generated DOT code for the dependency graph (see `08-v1-dependency-graph-dot.txt`).
+*   **Result:** Generated DOT code for the dependency graph.
 *   **Key Observations:**
     *   The graph visually confirms the separation of concerns typical of Hexagonal Architecture.
     *   `src.core.domain` and `src.core.application` are at the center, with dependencies flowing outward towards `src.adapters`.
@@ -81,14 +79,14 @@ This document summarizes the results of the initial benchmark for the Hexagonal 
 *   **Tool:** `pytest` (with `--durations` flag)
 *   **Command:** `pytest tests/ --durations=10`
 *   **Key Observations:**
-    *   The tests execute very quickly (overall duration ~0.09s to 0.10s).
-    *   The slowest reported durations are related to test setup (`0.02s` to `0.03s`) rather than the actual test logic (`call` time is much lower, e.g., `0.01s`).
+    *   The tests execute very quickly (overall duration ~0.06s).
+    *   The slowest reported durations are related to test setup (`0.02s`) rather than the actual test logic (`call` time is much lower).
 
 ## Conclusion (Version 1)
 
 *   The unit tests provide a solid foundation, achieving **67% overall code coverage**. Coverage is strong in core business logic but lower in infrastructure layers like the repository and main application entry point.
 *   The code exhibits **low cyclomatic complexity** and **high maintainability scores**, suggesting good structural health.
 *   **Linting** passes without issues.
-*   **Type checking** reveals several critical errors related to data mapping and dependency injection, requiring immediate attention.
+*   **Type checking** now passes without errors, confirming the successful resolution of previous type-related issues. This significantly increases confidence in the code's correctness.
 *   The **dependency graph** confirms the intended architectural structure of the Hexagonal Architecture.
 *   This baseline provides metrics for comparison with other architectural implementations (e.g., Clean, Onion) in future benchmarking phases (Version 2, incorporating integration/E2E tests and performance analysis).
