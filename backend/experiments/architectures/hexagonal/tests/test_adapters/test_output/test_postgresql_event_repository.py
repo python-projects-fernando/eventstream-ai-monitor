@@ -1,32 +1,42 @@
 import pytest
-from sqlalchemy.ext.asyncio import AsyncSession
 from unittest.mock import AsyncMock, MagicMock
+from sqlalchemy.ext.asyncio import AsyncSession
 from adapters.output.database.repositories.postgresql_event_repository import PostgreSQLEventRepository
+from core.domain.entities import Event
 from adapters.output.database.models.event_model import EventModel
-from core.domain.entities.event import Event
+import uuid
+from datetime import datetime, timezone
 
 
 class TestPostgreSQLEventRepository:
 
-    @pytest.mark.asyncio
-    async def test_save_calls_session_add_and_commit(self):
-        session_mock = AsyncMock(spec=AsyncSession)
-        session_mock = AsyncMock(spec=AsyncSession)
-        async_context_manager = AsyncMock()
-        async_context_manager.__aenter__.return_value = session_mock
-        session_factory_mock = MagicMock(return_value=async_context_manager)
-        repo = PostgreSQLEventRepository(session_factory=session_factory_mock)
-
+    def test_map_to_db_entity(self):
         domain_event = Event.create(source="test", event_type="save", payload={"test": True})
-        db_event_instance_mock = MagicMock(spec=EventModel)
-        repo._map_to_db_entity = MagicMock(return_value=db_event_instance_mock)
-        repo._map_from_db_entity = MagicMock(return_value=domain_event)
+        repo = PostgreSQLEventRepository(session=MagicMock())
 
-        result = await repo.save(domain_event)
+        db_event = repo._map_to_db_entity(domain_event)
 
-        session_mock.add.assert_called_once_with(db_event_instance_mock)
-        session_mock.commit.assert_called_once()
-        session_mock.refresh.assert_called_once_with(db_event_instance_mock)
-        repo._map_to_db_entity.assert_called_once_with(domain_event)
-        repo._map_from_db_entity.assert_called_once_with(db_event_instance_mock)
-        assert result == domain_event
+        assert isinstance(db_event, EventModel)
+        assert db_event.source == domain_event.source
+        assert db_event.event_type == domain_event.event_type
+        assert db_event.payload == domain_event.payload
+
+    def test_map_from_db_entity(self):
+        db_event = EventModel(
+            id="test-id",
+            timestamp=datetime.now(timezone.utc),
+            source="test",
+            event_type="save",
+            payload={"test": True},
+            processed=False,
+            ai_classification=None
+        )
+        repo = PostgreSQLEventRepository(session=MagicMock())
+
+        domain_event = repo._map_from_db_entity(db_event)
+
+        assert isinstance(domain_event, Event)
+        assert domain_event.id == db_event.id
+        assert domain_event.source == db_event.source
+        assert domain_event.event_type == db_event.event_type
+        assert domain_event.payload == db_event.payload

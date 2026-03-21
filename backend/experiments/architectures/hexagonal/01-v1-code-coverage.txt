@@ -1,0 +1,57 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.3, pytest-9.0.2, pluggy-1.6.0
+rootdir: C:\Repos\projetos\python\eventstream-ai-monitor\backend\experiments\architectures\hexagonal
+configfile: pytest.ini
+plugins: anyio-4.12.1, locust-2.43.3, asyncio-1.3.0, cov-7.0.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 9 items
+
+tests\test_adapters\test_input\test_event_routes.py ..                   [ 22%]
+tests\test_adapters\test_output\test_postgresql_event_repository.py ..   [ 44%]
+tests\test_application\test_use_cases\test_process_event_use_case.py .   [ 55%]
+tests\test_domain\test_event.py ....                                     [100%]
+
+============================== warnings summary ===============================
+src\adapters\input\api\schemas\event_schemas.py:15
+  C:\Repos\projetos\python\eventstream-ai-monitor\backend\experiments\architectures\hexagonal\src\adapters\input\api\schemas\event_schemas.py:15: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class EventResponseSchema(BaseModel):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=============================== tests coverage ================================
+_______________ coverage: platform win32, python 3.13.3-final-0 _______________
+
+Name                                                                       Stmts   Miss  Cover   Missing
+--------------------------------------------------------------------------------------------------------
+src\__init__.py                                                                0      0   100%
+src\adapters\__init__.py                                                       2      0   100%
+src\adapters\input\__init__.py                                                 0      0   100%
+src\adapters\input\api\__init__.py                                             0      0   100%
+src\adapters\input\api\dependencies.py                                         6      1    83%   11
+src\adapters\input\api\event_routes.py                                        14      2    86%   32-33
+src\adapters\input\api\schemas\__init__.py                                     2      0   100%
+src\adapters\input\api\schemas\event_schemas.py                               16      0   100%
+src\adapters\output\__init__.py                                                2      0   100%
+src\adapters\output\database\__init__.py                                       4      0   100%
+src\adapters\output\database\config\__init__.py                                0      0   100%
+src\adapters\output\database\config\postgres_config.py                         9      1    89%   16
+src\adapters\output\database\models\__init__.py                                2      0   100%
+src\adapters\output\database\models\event_model.py                            15      0   100%
+src\adapters\output\database\postgres_dependencies.py                         10      3    70%   8-9, 12
+src\adapters\output\database\repositories\__init__.py                          2      0   100%
+src\adapters\output\database\repositories\postgresql_event_repository.py      48     31    35%   36-51, 71-95, 108-127, 150-175
+src\core\__init__.py                                                           0      0   100%
+src\core\application\__init__.py                                               0      0   100%
+src\core\application\ports\__init__.py                                         0      0   100%
+src\core\application\ports\input\__init__.py                                   2      0   100%
+src\core\application\ports\input\process_event_input_port.py                   7      1    86%   31
+src\core\application\ports\output\__init__.py                                  2      0   100%
+src\core\application\ports\output\event_repository_output_port.py             16      4    75%   25, 38, 52, 65
+src\core\application\use_cases\__init__.py                                     2      0   100%
+src\core\application\use_cases\process_event_use_case.py                      10      0   100%
+src\core\domain\__init__.py                                                    0      0   100%
+src\core\domain\entities\__init__.py                                           2      0   100%
+src\core\domain\entities\event.py                                             31      4    87%   27, 58, 62, 66
+src\main.py                                                                   20     20     0%   1-36
+--------------------------------------------------------------------------------------------------------
+TOTAL                                                                        224     67    70%
+======================== 9 passed, 1 warning in 0.73s =========================

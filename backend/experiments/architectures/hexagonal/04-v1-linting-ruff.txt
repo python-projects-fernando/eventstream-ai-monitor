@@ -1,0 +1,14 @@
+F811 Redefinition of unused `PostgreSQLEventRepository` from line 1
+ --> src\adapters\output\database\__init__.py:1:55
+  |
+1 | from .repositories.postgresql_event_repository import PostgreSQLEventRepository
+  |                                                       ------------------------- previous definition of `PostgreSQLEventRepository` here
+2 | from .models.event_model import EventModel
+3 | from .postgres_dependencies import PostgreSQLEventRepository
+  |                                    ^^^^^^^^^^^^^^^^^^^^^^^^^ `PostgreSQLEventRepository` redefined here
+4 |
+5 | __all__ = ["PostgreSQLEventRepository", "EventModel", "PostgreSQLEventRepository"]
+  |
+help: Remove definition: `PostgreSQLEventRepository`
+
+Found 1 error.

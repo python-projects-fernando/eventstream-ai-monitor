@@ -1,0 +1,50 @@
+src\main.py
+    F 13:0 lifespan - A (1)
+    F 19:0 create_app - A (1)
+src\adapters\input\api\dependencies.py
+    F 8:0 get_process_event_use_case - A (1)
+src\adapters\input\api\event_routes.py
+    F 16:0 handle_create_event - A (3)
+src\adapters\input\api\schemas\event_schemas.py
+    C 6:0 EventRequestSchema - A (1)
+    C 15:0 EventResponseSchema - A (1)
+src\adapters\output\database\postgres_dependencies.py
+    F 7:0 get_db_session - A (1)
+    F 11:0 get_postgresql_event_repository - A (1)
+src\adapters\output\database\config\postgres_config.py
+    F 15:0 get_async_sessionmaker - A (1)
+src\adapters\output\database\models\event_model.py
+    C 6:0 Base - A (1)
+    C 10:0 EventModel - A (1)
+src\adapters\output\database\repositories\postgresql_event_repository.py
+    M 97:4 PostgreSQLEventRepository.find_all - A (3)
+    C 9:0 PostgreSQLEventRepository - A (2)
+    M 61:4 PostgreSQLEventRepository.find_by_id - A (2)
+    M 140:4 PostgreSQLEventRepository.update - A (2)
+    M 17:4 PostgreSQLEventRepository.__init__ - A (1)
+    M 26:4 PostgreSQLEventRepository.save - A (1)
+    M 185:4 PostgreSQLEventRepository._map_to_db_entity - A (1)
+    M 205:4 PostgreSQLEventRepository._map_from_db_entity - A (1)
+src\core\application\ports\input\process_event_input_port.py
+    C 6:0 ProcessEventInputPort - A (2)
+    M 15:4 ProcessEventInputPort.process - A (1)
+src\core\application\ports\output\event_repository_output_port.py
+    C 6:0 EventRepositoryOutputPort - A (2)
+    M 15:4 EventRepositoryOutputPort.save - A (1)
+    M 28:4 EventRepositoryOutputPort.find_by_id - A (1)
+    M 41:4 EventRepositoryOutputPort.find_all - A (1)
+    M 55:4 EventRepositoryOutputPort.update - A (1)
+src\core\application\use_cases\process_event_use_case.py
+    C 7:0 ProcessEventUseCase - A (2)
+    M 15:4 ProcessEventUseCase.__init__ - A (1)
+    M 24:4 ProcessEventUseCase.process - A (1)
+src\core\domain\entities\event.py
+    M 24:4 Event.__post_init__ - A (5)
+    C 8:0 Event - A (3)
+    M 36:4 Event.create - A (1)
+    M 56:4 Event.mark_as_processed - A (1)
+    M 60:4 Event.set_ai_classification - A (1)
+    M 64:4 Event.get_summary - A (1)
+
+35 blocks (classes, functions, methods) analyzed.
+Average complexity: A (1.457142857142857)
