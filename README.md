@@ -1,7 +1,7 @@
 # EventStream AI Monitor
 
 <p align="center">
-  <img src="docs/images/eventstream-logo.svg" alt="EventStream AI Monitor Logo">
+  <img src="https://assets.zyrosite.com/AQEZkE43zXtgRjLB/eventstream-ai-monitor-logo-99XQSTB0W51Y2iQc.png" alt="EventStream AI Monitor Logo">
 </p>
 
 ## Status
